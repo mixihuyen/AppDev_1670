@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AppDev.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20231123032423_AddSeedingCategoryToTable")]
-    partial class AddSeedingCategoryToTable
+    [Migration("20231123183032_AddCategoryToTable")]
+    partial class AddCategoryToTable
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,7 +24,7 @@ namespace AppDev.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("AppDev.Data.Category", b =>
+            modelBuilder.Entity("AppDev.Models.Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -45,7 +45,7 @@ namespace AppDev.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Category");
+                    b.ToTable("Categories");
 
                     b.HasData(
                         new
@@ -65,15 +65,15 @@ namespace AppDev.Migrations
                         new
                         {
                             Id = 3,
-                            Description = " Hi",
-                            DisplayOrder = 4,
-                            Name = "Ronman"
+                            Description = "A lot of roman stories",
+                            DisplayOrder = 1,
+                            Name = "Roman"
                         },
                         new
                         {
                             Id = 4,
-                            Description = " So",
-                            DisplayOrder = 5,
+                            Description = "So difficult",
+                            DisplayOrder = 4,
                             Name = "Science"
                         });
                 });
