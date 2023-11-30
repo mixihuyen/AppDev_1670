@@ -1,4 +1,6 @@
 using AppDev.Data;
+using AppDev.Repository;
+using AppDev.Repository.IRepository;
 using Microsoft.EntityFrameworkCore;
 
 internal class Program
@@ -12,6 +14,7 @@ internal class Program
 		builder.Services.AddDbContext<ApplicationDBContext>(options =>
 		options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+		builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 		var app = builder.Build();
 
 		// Configure the HTTP request pipeline.
