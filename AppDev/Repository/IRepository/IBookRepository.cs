@@ -2,8 +2,8 @@
 
 namespace AppDev.Repository.IRepository
 {
-	public interface IBookRepository : IRepository<Book>
-	{
-		void Update(Book entity);
-	}
+    public interface IBookRepository : IRepository<Book>
+    {
+        void Update(Book entity);
+    }
 }

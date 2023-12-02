@@ -5,8 +5,9 @@ using AppDev.Repository.IRepository;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace AppDev.Controllers
+namespace AppDev.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class BookController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -57,7 +58,7 @@ namespace AppDev.Controllers
                     string fileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
                     string bookPath = Path.Combine(wwwRootPath, @"images\books");
 
-                    if (!String.IsNullOrEmpty(bookVM.Book.ImageUrl))
+                    if (!string.IsNullOrEmpty(bookVM.Book.ImageUrl))
                     {
                         var oldImagePath = Path.Combine(wwwRootPath, bookVM.Book.ImageUrl.TrimStart('\\'));
                         if (System.IO.File.Exists(oldImagePath))
